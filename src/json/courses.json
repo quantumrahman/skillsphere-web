@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "React.js Architecture & Design Patterns",
+    "instructor": "Alex Riverside",
+    "duration": "12 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Master clean code, custom hooks, and performance optimization in React.",
+    "image": "https://skillsphere-rrdev.vercel.app/images/react_architecture_and_design_patterns.png",
+    "category": "Frontend Development"
+  },
+  {
+    "id": 2,
+    "title": "Backend Engineering with Go",
+    "instructor": "Jordan Smith",
+    "duration": "22 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Build scalable microservices and handle high-concurrency with Golang.",
+    "image": "https://skillsphere-rrdev.vercel.app/images/backend_engineering_with_go.png",
+    "category": "Backend Development"
+  },
+  {
+    "id": 3,
+    "title": "Python for DevOps & Automation",
+    "instructor": "Sophia Martinez",
+    "duration": "15 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Automate cloud infrastructure and CI/CD pipelines using Python scripting.",
+    "image": "https://skillsphere-rrdev.vercel.app/images/python_for_devops_and_automation.png",
+    "category": "DevOps"
+  },
+  {
+    "id": 4,
+    "title": "Rust Systems Programming",
+    "instructor": "Liam Anderson",
+    "duration": "30 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Memory safety without a garbage collector. Deep dive into ownership and borrowing.",
+    "image": "https://skillsphere-rrdev.vercel.app/images/rust_systems_programming.png",
+    "category": "Systems Programming"
+  },
+  {
+    "id": 5,
+    "title": "iOS Development with SwiftUI",
+    "instructor": "Emma Watson",
+    "duration": "18 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Build native, fluid mobile applications for the Apple ecosystem from scratch.",
+    "image": "https://skillsphere-rrdev.vercel.app/images/ios_development_with_swiftui.png",
+    "category": "Mobile Development"
+  },
+  {
+    "id": 6,
+    "title": "PostgreSQL Performance Tuning",
+    "instructor": "David Chen",
+    "duration": "10 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Optimize complex queries, indexing strategies, and database schema design.",
+    "image": "https://skillsphere-rrdev.vercel.app/images/postgre_sql_performance_tuning.png",
+    "category": "Database Management"
+  }
+]
