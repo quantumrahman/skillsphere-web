@@ -1,6 +1,8 @@
 import { Geist } from "next/font/google";
 import "../globals.css";
 
+import Header from "@/components/shared/Header/Header";
+
 const geist = Geist({
     subsets: ["latin"],
     variable: "--font-geist-sans"
@@ -14,6 +16,7 @@ export const metadata = ({
 const MainLayout = ({ children }) => {
     return (
         <div className={`w-full ${geist.variable} antialiased`}>
+            <Header />
             {children}
         </div>
     );
