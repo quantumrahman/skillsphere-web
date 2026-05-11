@@ -17,7 +17,7 @@ const RootLayout = ({ children }) => {
             lang="en"
             className={`${geist.variable} h-full antialiased`}
         >
-            <body className="h-full bg-[#000000]">
+            <body className="h-full bg-[#121212]">
                 {children}
             </body>
         </html>
