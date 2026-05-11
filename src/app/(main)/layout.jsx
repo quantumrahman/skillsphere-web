@@ -2,6 +2,7 @@ import { Geist } from "next/font/google";
 import "../globals.css";
 
 import Header from "@/components/shared/Header/Header";
+import Footer from "@/components/shared/Footer/Footer";
 
 const geist = Geist({
     subsets: ["latin"],
@@ -18,6 +19,7 @@ const MainLayout = ({ children }) => {
         <div className={`w-full ${geist.variable} antialiased`}>
             <Header />
             {children}
+            <Footer />
         </div>
     );
 };
