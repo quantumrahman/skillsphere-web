@@ -6,7 +6,7 @@ import Navbar from "@/components/ui/Navbar/Navbar";
 
 const Header = () => {
     return (
-        <div className="w-full px-5 py-5 bg-[#1e1e1e] border-b border-[#2a2a2a]">
+        <div className="w-full px-5 py-5 bg-[#121212] border-b border-[#2a2a2a]">
             <div className="w-full max-w-[1400px] mx-auto">
                 <header className="w-full flex items-center justify-between">
                     <div className="flex items-center gap-10">
