@@ -1,7 +1,7 @@
 import { 
-    RiFacebookFill, 
-    RiGlobalLine, 
-    RiLinkedinFill 
+    RiGlobalLine,
+    RiLinkedinFill, 
+    RiTwitterFill
 } from "@remixicon/react";
 
 import Image from "next/image";
@@ -11,15 +11,15 @@ const InstructorCard = ({ instructor }) => {
     return (
         <div className="w-full h-[400px] border border-[#2a2a2a] rounded-lg relative overflow-hidden group">
             <Image 
-                src={'/images/jane_smith.png'}
+                src={instructor?.image}
                 alt="instructor jane smith"
                 fill={true}
                 className="object-cover w-full h-full rounded-lg transition-transform duration-500 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-110"
             />
             <div className="w-full h-full bg-linear-[180deg] from-transparent to-[#121212]/100 absolute top-0 left-0"></div>
             <div className="w-full absolute bottom-6 left-6 z-10 transition-transform duration-500 ease-in-out group-hover:-translate-y-15">
-                <h3 className="text-xl font-normal text-[#ffffff]">Jane Smith</h3>
-                <p className="text-sm font-normal text-[#8e8e8e]">Cyber Security Expert</p>
+                <h3 className="text-xl font-normal text-[#ffffff]">{instructor?.name}</h3>
+                <p className="text-sm font-normal text-[#8e8e8e]">{instructor?.expert}</p>
             </div>
             <div className="w-full absolute z-10 flex items-center justify-center gap-2 -bottom-10 translate-y-15 left-0 transition-transform duration-500 ease-in-out group-hover:-translate-y-15">
                 <Link 
@@ -35,7 +35,7 @@ const InstructorCard = ({ instructor }) => {
                     href={'/'} 
                     className="w-8 h-8 flex items-center justify-center rounded-full bg-[#ffffff]"
                 >
-                    <RiFacebookFill 
+                    <RiTwitterFill 
                         size={18} 
                         className="text-[#121212]" 
                     />

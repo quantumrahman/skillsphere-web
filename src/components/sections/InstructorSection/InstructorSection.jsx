@@ -1,6 +1,9 @@
 import InstructorCard from "@/components/ui/Cards/InstructorCard/InstructorCard";
+import { getInstructors } from "@/lib/get.instructors";
 
-const InstructorSection = () => {
+const InstructorSection = async () => {
+    const instructors = await getInstructors();
+
     return (
         <div className="w-full py-12 md:py-20">
             <div className="w-full max-w-[1100px] mx-auto">
@@ -11,9 +14,9 @@ const InstructorSection = () => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
-                    <InstructorCard />
-                    <InstructorCard />
-                    <InstructorCard />
+                    {instructors.map((instructor) => (
+                        <InstructorCard key={instructor.id} instructor={instructor}/>
+                    ))}
                 </div>
             </div>
         </div>
