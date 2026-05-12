@@ -1,3 +1,4 @@
+import InstructorSection from "@/components/sections/InstructorSection/InstructorSection";
 import PopularSection from "@/components/sections/PopularSection/PopularSection";
 
 import InstructorCard from "@/components/ui/Cards/InstructorCard/InstructorCard";
@@ -6,6 +7,7 @@ const HomePage = () => {
     return (
         <div className="w-full px-5">
             <PopularSection />
+            <InstructorSection />
             {/* <div className="w-full max-w-[1100px] mx-auto">
                 <div className="w-full text-center">
                     <h1 className="text-[28px] font-semibold text-[#ffffff] sm:text-[32px] md:text-[36px] lg:text-[40px]">Meet Our Elite Educators</h1>
