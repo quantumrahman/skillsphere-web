@@ -1,6 +1,11 @@
 import CourseCard from "@/components/ui/Cards/CourseCard/CourseCard";
+import { getCourses } from "@/lib/get.courses";
 
-const PopularSection = () => {
+const PopularSection = async () => {
+    const courses = await getCourses();
+
+    const popularCourses = courses.filter((course) => course.rating > 4.7).slice(0, 3);
+
     return (
         <div className="w-full py-12 md:py-20">
             <div className="w-full max-w-[1200px] mx-auto">
@@ -8,9 +13,9 @@ const PopularSection = () => {
                     <h1 className="text-[28px] font-semibold text-[#ffffff] sm:text-[32px] md:text-[36px] lg:text-[40px]">Our Most Popular Courses</h1>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
-                    <CourseCard />
-                    <CourseCard />
-                    <CourseCard />
+                    {popularCourses.map((course) => (
+                        <CourseCard key={course.id} course={course}/>
+                    ))}
                 </div>
                 <div className="w-full flex items-center justify-center flex-col">
                     <div className="w-full max-w-[400px] mx-auto text-center my-8">
