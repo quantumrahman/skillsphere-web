@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Pomodoro Technique",
+        "description": "A method of studying for 25 minutes followed by a 5-minute break to improve focus and reduce fatigue.[cite: 1]",
+        "icon": "clock"
+    },
+    {
+        "id": 2,
+        "title": "Feynman Technique",
+        "description": "A way to learn a difficult subject by explaining it simply to someone else to deepen your own understanding.[cite: 1]",
+        "icon": "book"
+    },
+    {
+        "id": 3,
+        "title": "Active Recall",
+        "description": "Closing your book after reading and trying to answer questions or recall the information from memory.[cite: 1]",
+        "icon": "brain"
+    },
+    {
+        "id": 4,
+        "title": "Eisenhower Matrix",
+        "description": "A method for setting priorities by dividing tasks into four categories based on importance and urgency.[cite: 1]",
+        "icon": "graph"
+    },
+    {
+        "id": 5,
+        "title": "Eat the Frog",
+        "description": "The habit of finishing the most difficult and important task of the day first.[cite: 1]",
+        "icon": "ligth"
+    },
+    {
+        "id": 6,
+        "title": "Time Blocking",
+        "description": "Assigning specific tasks to every hour of the day to ensure time is not wasted.[cite: 1]",
+        "icon": "calendar"
+    }
+]
