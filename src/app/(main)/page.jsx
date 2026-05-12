@@ -1,9 +1,8 @@
+import CTASection from "@/components/sections/CTASection/CTASection";
 import HeroSection from "@/components/sections/HeroSection/HeroSection";
 import InstructorSection from "@/components/sections/InstructorSection/InstructorSection";
 import PopularSection from "@/components/sections/PopularSection/PopularSection";
 import TipsSection from "@/components/sections/TipsSection/TipsSection";
-
-import InstructorCard from "@/components/ui/Cards/InstructorCard/InstructorCard";
 
 const HomePage = () => {
     return (
@@ -12,6 +11,7 @@ const HomePage = () => {
             <PopularSection />
             <TipsSection />
             <InstructorSection />
+            <CTASection />
             {/* <div className="w-full max-w-[1100px] mx-auto">
                 <div className="w-full text-center">
                     <h1 className="text-[28px] font-semibold text-[#ffffff] sm:text-[32px] md:text-[36px] lg:text-[40px]">Meet Our Elite Educators</h1>
