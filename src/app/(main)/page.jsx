@@ -1,3 +1,4 @@
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
 import InstructorSection from "@/components/sections/InstructorSection/InstructorSection";
 import PopularSection from "@/components/sections/PopularSection/PopularSection";
 import TipsSection from "@/components/sections/TipsSection/TipsSection";
@@ -7,6 +8,7 @@ import InstructorCard from "@/components/ui/Cards/InstructorCard/InstructorCard"
 const HomePage = () => {
     return (
         <div className="w-full px-5">
+            <HeroSection />
             <PopularSection />
             <TipsSection />
             <InstructorSection />
