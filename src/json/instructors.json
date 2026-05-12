@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Jane Smith",
+    "expert": "Cyber Security Expert",
+    "image": "https://skillsphere-rrdev.vercel.app/images/jane_smith.png",
+    "social": {
+      "website": "https://janesmith.design",
+      "twitter": "https://twitter.com/janesmith",
+      "linkedin": "https://linkedin.com/in/janesmith"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Kevin Johnson",
+    "expert": "Database Design Expert",
+    "image": "https://skillsphere-rrdev.vercel.app/images/kevin_johnson.png",
+    "social": {
+      "website": "https://kevinjohnson.dev",
+      "twitter": "https://twitter.com/kevinjohnson",
+      "linkedin": "https://linkedin.com/in/kevinjohnson"
+    }
+  },
+  {
+    "id": 3,
+    "name": "David Williams",
+    "expert": "Cloud System Expert",
+    "image": "https://skillsphere-rrdev.vercel.app/images/david_williams.png",
+    "social": {
+      "website": "https://davidwilliams.dev",
+      "twitter": "https://twitter.com/davidwilliams",
+      "linkedin": "https://linkedin.com/in/davidwilliams"
+    }
+  }
+]
