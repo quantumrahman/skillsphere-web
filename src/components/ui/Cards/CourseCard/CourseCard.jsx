@@ -20,16 +20,18 @@ const CourseCard = ({ course }) => {
                     <LevelBadges level={course?.level.toLowerCase()}/>
                 </div>
             </div>
-            <div className="w-full px-6 py-4 space-y-0.5">
-                <h3 className="text-lg font-medium text-[#ffffff]">{course?.title}</h3>
-                <div className="w-full flex items-center justify-between">
-                    <span className="text-sm font-normal text-[#8e8e8e]">{course?.instructor}</span>
-                    <div className="flex items-center justify-center gap-2">
-                        <RiStarSFill 
-                            size={14} 
-                            color="#8e8e8e" 
-                        />
-                        <span className="text-sm font-normal text-[#8e8e8e]">{course?.rating}</span>
+            <div className="w-full h-[155px] px-6 py-4 flex justify-between flex-col">
+                <div className="space-y-0.5">
+                    <h3 className="text-lg font-medium text-[#ffffff]">{course?.title}</h3>
+                    <div className="w-full flex items-center justify-between">
+                        <span className="text-sm font-normal text-[#8e8e8e]">{course?.instructor}</span>
+                        <div className="flex items-center justify-center gap-2">
+                            <RiStarSFill 
+                                size={14} 
+                                color="#8e8e8e" 
+                            />
+                            <span className="text-sm font-normal text-[#8e8e8e]">{course?.rating}</span>
+                        </div>
                     </div>
                 </div>
                 <button className="w-fit mx-auto mt-3 px-3 py-2 text-xs font-normal text-[#ffffff] flex items-center justify-center gap-1 cursor-pointer">
