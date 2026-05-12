@@ -21,8 +21,8 @@ const PopularSection = async () => {
                     <div className="w-full max-w-[400px] mx-auto text-center my-8">
                         <p className="text-base font-normal text-[#8e8e8e] leading-relaxed sm:text-xl">Join <span className="text-[#ffffff]">10k+ students</span> and learn from <span className="text-[#ffffff]">industry-leading experts</span> to boost your career.</p>
                     </div>
-                    <button className="w-fit h-[48px] px-3.5 rounded-md bg-[#ffffff] border border-[#ffffff] text-base font-normal text-[#121212] cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#121212] hover:text-[#ffffff] sm:px-4">
-                        View all Courses
+                    <button className="px-5 sm:px-6 lg:px-7 py-2.5 sm:py-3 lg:py-3.5 text-sm sm:text-base font-medium border border-[#2a2a2a] text-white rounded-lg hover:bg-white hover:text-[#121212] hover:border-[#ffffff] transition-all duration-200 cursor-pointer">
+                        View All Courses
                     </button>
                 </div>
             </div>
