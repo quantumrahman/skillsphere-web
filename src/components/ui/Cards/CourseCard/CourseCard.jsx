@@ -1,12 +1,24 @@
+"use client";
+
+import { 
+    useRouter
+} from "next/navigation";
 import { 
     RiArrowRightUpLine, 
     RiStarSFill 
 } from "@remixicon/react";
+import { slugify } from "@/utils/slugify";
 
 import Image from "next/image";
 import LevelBadges from "../../Badges/LevelBadge/LevelBadge";
 
 const CourseCard = ({ course }) => {
+    const router = useRouter();
+
+    const handleCourseDetails = (title) => {
+        router.push(`/courses/course-details/${slugify(title)}`);
+    };
+
     return (
         <div className="w-auto border border-[#2a2a2a] rounded-lg group">
             <div className="w-full h-[180px] sm:h-[250px] relative overflow-hidden rounded-lg">
@@ -34,7 +46,10 @@ const CourseCard = ({ course }) => {
                         </div>
                     </div>
                 </div>
-                <button className="w-fit mx-auto mt-3 px-3 py-2 text-xs font-normal text-[#ffffff] flex items-center justify-center gap-1 cursor-pointer">
+                <button
+                    onClick={() => handleCourseDetails(course?.title)}
+                    className="w-fit mx-auto mt-3 px-3 py-2 text-xs font-normal text-[#ffffff] flex items-center justify-center gap-1 cursor-pointer"
+                >
                     View Details
                     <RiArrowRightUpLine size={15} color="#ffffff" />
                 </button>

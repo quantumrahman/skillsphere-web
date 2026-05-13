@@ -8,10 +8,18 @@ import {
     RiTimeLine, 
     RiUserLine 
 } from "@remixicon/react";
+import { getCourses } from "@/lib/get.courses";
+
 import Image from "next/image";
 import Link from "next/link";
+import { slugify } from "@/utils/slugify";
 
-const CourseDetailsPage = () => {
+const CourseDetailsPage = async ({ params }) => {
+    const slugUrl = await params;
+    const courses = await getCourses();
+    
+    const findCourse = courses.find((course) => slugify(course.title) === slugUrl.slug);
+
     return (
         <div className="w-full px-5 py-12 md:py-20">
             <div className="w-full max-w-[1400px] mx-auto">
@@ -29,7 +37,7 @@ const CourseDetailsPage = () => {
                         <div className="w-full px-5 pt-5 md:px-[30px] md:pt-[30px]">
                             <div className="w-full aspect-video relative rounded-lg overflow-hidden">
                                 <Image 
-                                    src="/images/rust_systems_programming.png"
+                                    src={findCourse?.image}
                                     alt="course image"
                                     fill
                                     className="object-cover"
@@ -38,16 +46,16 @@ const CourseDetailsPage = () => {
                         </div>
                         <div className="w-full p-5 md:p-[30px]">
                             <div className="flex flex-col gap-4">
-                                <h2 className="text-xl font-semibold text-[#ffffff] sm:text-2xl md:text-3xl lg:text-4xl">React.js Architecture & Design Patterns</h2>
-                                <p className="text-sm font-normal text-[#8e8e8e] sm:text-base md:text-lg lg:text-xl">Master clean code, custom hooks, and performance optimization in React.</p>
+                                <h2 className="text-xl font-semibold text-[#ffffff] sm:text-2xl md:text-3xl lg:text-4xl">{findCourse?.title}</h2>
+                                <p className="text-sm font-normal text-[#8e8e8e] sm:text-base md:text-lg lg:text-xl">{findCourse?.description}</p>
                             </div>
                             <div className="w-full h-px bg-[#2a2a2a] my-5"></div>
                             <div className="w-full flex items-center gap-2 flex-wrap sm:gap-3 md:gap-5 lg:gap-6">
-                                <p className="text-xs font-normal text-[#ffffff] sm:text-sm md:text-base">Instructor: <span className="text-[#8e8e8e]">Rakibul Rahman</span></p>
+                                <p className="text-xs font-normal text-[#ffffff] sm:text-sm md:text-base">Instructor: <span className="text-[#8e8e8e]">{findCourse?.instructor}</span></p>
                                 <div className="w-px h-5 bg-[#2a2a2a]"></div>
                                 <div className="flex items-center gap-2">
                                     <RiBookmarkLine size={20} color="#ffffff" />
-                                    <span className="text-xs font-normal text-[#8e8e8e] mt-0.5 sm:text-sm md:text-base">Frontend Development</span>
+                                    <span className="text-xs font-normal text-[#8e8e8e] mt-0.5 sm:text-sm md:text-base">{findCourse?.category}</span>
                                 </div>
                                 <div className="w-px h-5 bg-[#2a2a2a]"></div>
                                 <div className="flex items-center gap-2">
@@ -57,7 +65,7 @@ const CourseDetailsPage = () => {
                                         <RiStarSFill size={20} color="#ffffff" />
                                         <RiStarHalfSFill size={20} color="#ffffff" />
                                     </div>
-                                    <span className="text-xs font-normal text-[#8e8e8e] mt-0.5 sm:text-sm md:text-base">4.5+</span>
+                                    <span className="text-xs font-normal text-[#8e8e8e] mt-0.5 sm:text-sm md:text-base">{findCourse?.rating}+</span>
                                 </div>
                             </div>
                         </div>
@@ -91,19 +99,19 @@ const CourseDetailsPage = () => {
                                 <div className="flex items-center gap-3">
                                     <RiUserLine size={20} color="#ffffff" />
                                     <span className="text-xs text-[#ffffff] sm:text-sm md:text-base">Instructor:</span>
-                                    <span className="text-xs sm:text-sm md:text-base text-[#8e8e8e]">Rakibul Rahman</span>
+                                    <span className="text-xs sm:text-sm md:text-base text-[#8e8e8e]">{findCourse?.instructor}</span>
                                 </div>
                                 <div className="w-full border-t border-dashed border-[#2a2a2a]"></div>
                                 <div className="flex items-center gap-3">
                                     <RiTimeLine size={20} color="#ffffff" />
                                     <span className="text-xs text-[#ffffff] sm:text-sm md:text-base">Duration:</span>
-                                    <span className="text-xs sm:text-sm md:text-base text-[#8e8e8e]">12 hours</span>
+                                    <span className="text-xs sm:text-sm md:text-base text-[#8e8e8e]">{findCourse?.duration}</span>
                                 </div>
                                 <div className="w-full border-t border-dashed border-[#2a2a2a]"></div>
                                 <div className="flex items-center gap-3">
                                     <RiPriceTagLine size={20} color="#ffffff" />
                                     <span className="text-xs text-[#ffffff] sm:text-sm md:text-base">Course Level:</span>
-                                    <span className="text-xs sm:text-sm md:text-base text-[#8e8e8e]">Beginner</span>
+                                    <span className="text-xs sm:text-sm md:text-base text-[#8e8e8e]">{findCourse?.level}</span>
                                 </div>
                             </div>
                             <button className="w-full mt-10 px-5 sm:px-6 lg:px-7 py-2.5 sm:py-3 lg:py-3.5 text-sm sm:text-base font-medium bg-white border border-[#ffffff] text-[#121212] rounded-lg hover:bg-gray-200 hover:border-[#ffffff] transition-all duration-200 cursor-pointer">
