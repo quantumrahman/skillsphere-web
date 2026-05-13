@@ -8,7 +8,7 @@ const LevelBadges = ({ level }) => {
 
     return (
         <div className={`px-2 py-0.5 backdrop-blur-md rounded-full border ${levelStyles[level]}`}>
-            <span className="text-xs font-normal">{level}</span>
+            <span className="text-xs font-normal capitalize">{level}</span>
         </div>
 )
 };
