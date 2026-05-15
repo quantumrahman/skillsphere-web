@@ -17,6 +17,8 @@ const LoginForm = () => {
         resolver: zodResolver(loginSchema)
     });
 
+    const redirectTo = searchParams.get("callbackUrl");
+
     const handleOnSubmit = async (formData) => {
 
         const { data, error } = await authClient.signIn.email({
@@ -25,12 +27,16 @@ const LoginForm = () => {
             rememberMe: true
         });
 
-        if (data) {
-            redirect(searchParams.get("callbackUrl"));
+        if (data && redirectTo) {
+            redirect(redirectTo);
         };
 
-        console.log(error);
-        
+        if (error) {
+            console.log(error);
+            return;
+        };
+
+        redirect('/');
     };
 
     return (
