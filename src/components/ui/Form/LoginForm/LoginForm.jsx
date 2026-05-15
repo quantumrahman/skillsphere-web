@@ -1,15 +1,12 @@
 "use client";
 
-import { redirect, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/schema/authSchema";
-import { authClient } from "@/lib/auth-client";
 
 const LoginForm = () => {
-    const searchParams = useSearchParams();
     
     const [togglePassword, setTogglePassword] = useState(false);
 
@@ -17,26 +14,8 @@ const LoginForm = () => {
         resolver: zodResolver(loginSchema)
     });
 
-    const redirectTo = searchParams.get("callbackUrl");
-
-    const handleOnSubmit = async (formData) => {
-
-        const { data, error } = await authClient.signIn.email({
-            email: formData?.email,
-            password: formData?.password,
-            rememberMe: true
-        });
-
-        if (data && redirectTo) {
-            redirect(redirectTo);
-        };
-
-        if (error) {
-            console.log(error);
-            return;
-        };
-
-        redirect('/');
+    const handleOnSubmit = (formData) => {
+        console.log(formData);
     };
 
     return (

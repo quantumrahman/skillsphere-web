@@ -5,16 +5,12 @@ import { RiGoogleFill } from "@remixicon/react";
 import SignupForm from "@/components/ui/Form/SignupForm/SignupForm";
 import Logo from "@/components/ui/Logo/Logo";
 import Link from "next/link";
-import { authClient } from "@/lib/auth-client";
 
 const SignUpPage = () => {
 
-    const handleGoogleLogin = async () => {
-        const data = await authClient.signIn.social({
-            provider: "google",
-        });
-
-        console.log(data);
+    const handleGoogleLogin =  () => {
+        
+        console.log('google login');
     };
 
     return (

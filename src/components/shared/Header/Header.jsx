@@ -1,7 +1,6 @@
 "use client";
 
 import { RiMenu4Line } from "@remixicon/react";
-import { authClient, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
@@ -11,14 +10,14 @@ import Image from "next/image";
 
 const Header = () => {
     const router = useRouter();
-    const user = useSession();
 
     const handleRedirectLogin = () => {
         router.push('/auth/login');
     };
 
-    const handleLogout = async () => {
-        const data =  await authClient.signOut();
+    const handleLogout = () => {
+        
+        console.log('log out');
     };
 
     return (
@@ -30,7 +29,7 @@ const Header = () => {
                         <Navbar />
                     </div>
                     <div className="flex items-center justify-center gap-5 md:gap-8">
-                        {user?.data 
+                        {/* {user?.data 
                             ? (
                                 <>
                                     <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-[#2a2a2a]">
@@ -72,7 +71,22 @@ const Header = () => {
                                     </button>
                                 </>
                             )
-                        }
+                        } */}
+                        <Link 
+                            href={'/auth/signup'}
+                            className="text-sm font-normal text-[#8e8e8e] hover:text-[#ffffff]"
+                        >
+                            Sign Up
+                        </Link>
+                        <button
+                            onClick={handleRedirectLogin}
+                            type="button"
+                            role="button"
+                            aria-label="button"
+                            className="px-4 py-2 rounded-full bg-[#ffffff] text-sm font-normal text-[#121212] cursor-pointer"
+                        >
+                            Login
+                        </button>
                         <button 
                             type="button"
                             role="button"

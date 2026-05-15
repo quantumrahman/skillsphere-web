@@ -1,12 +1,10 @@
 "use client";
 
-import { redirect } from "next/navigation";
 import { useState } from "react";
 import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupSchema } from "@/schema/authSchema";
-import { authClient } from "@/lib/auth-client";
 
 const SignupForm = () => {
     const [togglePassword, setTogglePassword] = useState(false);
@@ -15,20 +13,9 @@ const SignupForm = () => {
         resolver: zodResolver(signupSchema)
     });
 
-    const handleOnSubmit = async (formData) => {
+    const handleOnSubmit = (formData) => {
 
-        const {data, error} = await authClient.signUp.email({
-            name: formData?.name,
-            email: formData?.email,
-            password: formData?.password,
-            image: formData?.photo
-        });
-
-        if (data) {
-            redirect('/');
-        }
-        
-        console.log(error);
+        console.log(formData)
     };
  
     return (

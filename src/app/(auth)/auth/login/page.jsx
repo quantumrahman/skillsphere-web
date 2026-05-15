@@ -1,7 +1,6 @@
 "use client";
 
 import { RiGoogleFill } from "@remixicon/react";
-import { authClient } from "@/lib/auth-client";
 
 import LoginForm from "@/components/ui/Form/LoginForm/LoginForm";
 import Logo from "@/components/ui/Logo/Logo";
@@ -11,9 +10,7 @@ const LoginPage = () => {
 
     const handleGoogleLogin = async () => {
         
-        const data = await authClient.signIn.social({
-            provider: "google"
-        });
+        console.log('google login');
     };
 
     return (
