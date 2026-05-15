@@ -1,30 +1,44 @@
+"use client";
+
+import { userSchema } from "@/schema/userSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
 const UpdateForm = () => {
 
-    // ${errors.email?.message ? "border-red-400" : "border-[#2a2a2a]"}
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: zodResolver(userSchema)
+    });
+
+    const handleOnSubmit = async (formData) => {
+        console.log(formData)
+    };
 
     return (
-        <form>
+        <form onSubmit={handleSubmit(handleOnSubmit)}>
             <div className="space-y-1">
                 <div className="space-y-2">
                     <input 
                         type="text" 
-                        name="email"
+                        name="name"
                         placeholder="update name"
-                        className={`w-full bg-[#292929]/30 border rounded-lg text-base font-normal text-[#ffffff] focus:outline-none caret-[#ffffff] placeholder:text-[#8e8e8e] p-3 border-[#2a2a2a]`}
+                        className={`w-full bg-[#292929]/30 border rounded-lg text-base font-normal text-[#ffffff] focus:outline-none caret-[#ffffff] placeholder:text-[#8e8e8e] p-3 ${errors.name?.message ? "border-red-400" : "border-[#2a2a2a]"}`}
+                        {...register('name')}
                     />
                     <div className="w-full h-5 flex items-center justify-end">
-                        {/* <span className="text-sm font-normal text-red-400">{errors.email?.message}</span> */}
+                        <span className="text-sm font-normal text-red-400">{errors.name?.message}</span>
                     </div>
                 </div>
                 <div className="space-y-2">
                     <input 
                         type="text" 
-                        name="email"
+                        name="photo"
                         placeholder="photo url"
-                        className={`w-full bg-[#292929]/30 border rounded-lg text-base font-normal text-[#ffffff] focus:outline-none caret-[#ffffff] placeholder:text-[#8e8e8e] p-3 border-[#2a2a2a]`}
+                        className={`w-full bg-[#292929]/30 border rounded-lg text-base font-normal text-[#ffffff] focus:outline-none caret-[#ffffff] placeholder:text-[#8e8e8e] p-3 ${errors.photo?.message ? "border-red-400" : "border-[#2a2a2a]"}`}
+                        {...register('photo')}
                     />
                     <div className="w-full h-5 flex items-center justify-end">
-                        {/* <span className="text-sm font-normal text-red-400">{errors.email?.message}</span> */}
+                        <span className="text-sm font-normal text-red-400">{errors.photo?.message}</span>
                     </div>
                 </div>
                 <button
