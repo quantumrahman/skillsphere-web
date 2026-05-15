@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import { useForm } from "react-hook-form";
@@ -8,6 +9,8 @@ import { loginSchema } from "@/schema/authSchema";
 import { authClient } from "@/lib/auth-client";
 
 const LoginForm = () => {
+    const searchParams = useSearchParams();
+    
     const [togglePassword, setTogglePassword] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -15,6 +18,7 @@ const LoginForm = () => {
     });
 
     const handleOnSubmit = async (formData) => {
+
         const { data, error } = await authClient.signIn.email({
             email: formData?.email,
             password: formData?.password,
@@ -22,10 +26,11 @@ const LoginForm = () => {
         });
 
         if (data) {
-            console.log(data);
-        } else {
-            console.log(error);
+            redirect(searchParams.get("callbackUrl"));
         };
+
+        console.log(error);
+        
     };
 
     return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import { useForm } from "react-hook-form";
@@ -15,13 +16,18 @@ const SignupForm = () => {
     });
 
     const handleOnSubmit = async (formData) => {
+
         const {data, error} = await authClient.signUp.email({
             name: formData?.name,
             email: formData?.email,
             password: formData?.password,
             image: formData?.photo
         });
-        console.log(data);
+
+        if (data) {
+            redirect('/');
+        }
+        
         console.log(error);
     };
  
