@@ -28,7 +28,7 @@ const ProfilePage = () => {
                         <p className="text-sm font-normal text-[#8e8e8e] sm:text-base md:text-lg lg:text-xl">rakibulrahman.dev@gmail.com</p>
                     </div>
                     <Link 
-                        href={'/profile/profile-update'}
+                        href={'/profile-update'}
                         className="px-5 sm:px-6 lg:px-7 py-2.5 sm:py-3 lg:py-3.5 text-sm sm:text-base font-medium bg-white border border-[#ffffff] text-[#121212] rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 hover:border-[#ffffff] transition-all duration-200 cursor-pointer"
                     >
                         <RiEdit2Line size={20} color="#121212" />
