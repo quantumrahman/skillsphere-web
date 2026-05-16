@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { userSchema } from "@/schema/userSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -11,7 +12,12 @@ const UpdateForm = () => {
     });
 
     const handleOnSubmit = async (formData) => {
-        console.log(formData)
+        
+        await authClient.updateUser({
+            image: formData?.photo,
+            name: formData?.name
+        });
+
     };
 
     return (
