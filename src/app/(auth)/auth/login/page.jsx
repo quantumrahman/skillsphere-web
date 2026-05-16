@@ -1,11 +1,11 @@
 "use client";
 
 import { RiGoogleFill } from "@remixicon/react";
+import { authClient } from "@/lib/auth-client";
 
 import LoginForm from "@/components/ui/Form/LoginForm/LoginForm";
 import Logo from "@/components/ui/Logo/Logo";
 import Link from "next/link";
-import { authClient } from "@/lib/auth-client";
 
 const LoginPage = () => {
 
@@ -14,6 +14,7 @@ const LoginPage = () => {
         await authClient.signIn.social({
             provider: "google"
         });
+
     };
 
     return (

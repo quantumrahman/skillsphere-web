@@ -10,13 +10,11 @@ import Link from "next/link";
 const SignUpPage = () => {
 
     const handleGoogleLogin = async () => {
-        const data = await authClient.signIn.social({
+
+        await authClient.signIn.social({
             provider: "google"
         });
 
-        if (data) {
-            console.log(data);
-        };
     };
 
     return (
