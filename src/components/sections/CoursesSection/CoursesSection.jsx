@@ -1,9 +1,29 @@
-import CourseCard from "@/components/ui/Cards/CourseCard/CourseCard";
+"use client";
+
 import { getCourses } from "@/lib/get.courses";
 import { RiSearchLine } from "@remixicon/react";
+import { useEffect, useState } from "react";
 
-const CoursesSection = async () => {
-    const courses = await getCourses();
+import CourseCard from "@/components/ui/Cards/CourseCard/CourseCard";
+
+const CoursesSection = () => {
+    const [courses, setCourses] = useState([]);
+    const [search, setSearch] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            const data = await getCourses();
+            setCourses(data);
+            setIsLoading(false);
+        };
+
+        fetchCourses();
+    }, [search]);
+
+    const filterSearch = courses.filter((course) => 
+        course.title.toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
         <div className="w-full py-12 md:py-20 border-b border-[#2a2a2a]">
@@ -16,7 +36,9 @@ const CoursesSection = async () => {
                             id="search" 
                             type="text" 
                             name="search" 
-                            placeholder="Search course..." 
+                            placeholder="Search course..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
                             className="w-full bg-[#292929]/30 border border-[#2a2a2a] rounded-lg py-3 pl-12 text-base font-normal text-[#ffffff] focus:outline-none caret-[#ffffff] placeholder:text-[#8e8e8e]" 
                         />
                         <div className="absolute top-1/2 left-3.5 transform -translate-y-1/2">
@@ -24,11 +46,25 @@ const CoursesSection = async () => {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
-                    {courses.map((course) => (
-                        <CourseCard key={course.id} course={course}/>
-                    ))}
-                </div>
+                {isLoading 
+                    ? 
+                        <div className="w-full min-h-[200px] flex items-center justify-center">
+                            <p className="text-base font-normal text-[#8e8e8e] leading-relaxed sm:text-xl">Loading...</p>
+                        </div>
+                    :
+                        (filterSearch.length 
+                            ?
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
+                                    {filterSearch.map((course) => (
+                                        <CourseCard key={course.id} course={course}/>
+                                    ))}
+                                </div>
+                            :
+                                <div className="w-full min-h-[200px] flex items-center justify-center">
+                                    <p className="text-base font-normal text-[#8e8e8e] leading-relaxed sm:text-xl">No Course Yet.</p>
+                                </div>
+                        )
+                }
             </div>
         </div>
     );
