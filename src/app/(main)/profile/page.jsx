@@ -1,9 +1,13 @@
+"use client";
+
+import { useSession } from "@/lib/auth-client";
 import { RiEdit2Line } from "@remixicon/react";
 
 import Image from "next/image";
 import Link from "next/link";
 
 const ProfilePage = () => {
+    const data = useSession();
 
     return (
         <div className="w-full px-5 py-12 md:py-20">
@@ -17,15 +21,15 @@ const ProfilePage = () => {
                 <div className="w-full p-5 flex items-center justify-center flex-col gap-5 border border-[#2a2a2a] rounded-lg md:p-[25px] lg:p-[30px]">
                     <div className="relative w-24 h-24 rounded-full border-2 border-[#2a2a2a] sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
                         <Image 
-                            src={'/images/jane_smith.png'}
+                            src={data?.data?.user?.image || '/images/jane_smith.png'}
                             alt="profile image"
                             fill={true}
                             className="object-cover w-full h-full rounded-full"
                         />
                     </div>
                     <div className="w-full flex items-center justify-center flex-col text-center gap-2">
-                        <h1 className="text-lg font-semibold text-[#ffffff] break-words sm:text-xl md:text-2xl lg:text-3xl">Jane Rahman</h1>
-                        <p className="text-sm font-normal text-[#8e8e8e] sm:text-base md:text-lg lg:text-xl">rakibulrahman.dev@gmail.com</p>
+                        <h1 className="text-lg font-semibold text-[#ffffff] break-words sm:text-xl md:text-2xl lg:text-3xl">{data?.data?.user?.name}</h1>
+                        <p className="text-sm font-normal text-[#8e8e8e] sm:text-base md:text-lg lg:text-xl">{data?.data?.user?.email}</p>
                     </div>
                     <Link 
                         href={'/profile-update'}
