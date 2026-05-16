@@ -5,6 +5,7 @@ import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/schema/authSchema";
+import { authClient } from "@/lib/auth-client";
 
 const LoginForm = () => {
     
@@ -14,8 +15,19 @@ const LoginForm = () => {
         resolver: zodResolver(loginSchema)
     });
 
-    const handleOnSubmit = (formData) => {
-        console.log(formData);
+    const handleOnSubmit = async (formData) => {
+        
+        const { data, error } = await authClient.signIn.email({
+            email: formData?.email,
+            password: formData?.password,
+        });
+
+        if (data) {
+            console.log(data);
+        } else {
+            console.log(error);
+        };
+
     };
 
     return (
