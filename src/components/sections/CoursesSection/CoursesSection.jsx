@@ -5,6 +5,7 @@ import { RiSearchLine } from "@remixicon/react";
 import { useEffect, useState } from "react";
 
 import CourseCard from "@/components/ui/Cards/CourseCard/CourseCard";
+import { BarLoader, BeatLoader } from "react-spinners";
 
 const CoursesSection = () => {
     const [courses, setCourses] = useState([]);
@@ -49,7 +50,7 @@ const CoursesSection = () => {
                 {isLoading 
                     ? 
                         <div className="w-full min-h-[200px] flex items-center justify-center">
-                            <p className="text-base font-normal text-[#8e8e8e] leading-relaxed sm:text-xl">Loading...</p>
+                            <BeatLoader size={10} color="#ffffff" />
                         </div>
                     :
                         (filterSearch.length 
