@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/schema/authSchema";
 import { authClient } from "@/lib/auth-client";
+import toast from 'react-hot-toast';
+import Toast from "../../Toast/Toast";
 
 const LoginForm = () => {
     
@@ -23,9 +25,13 @@ const LoginForm = () => {
         });
 
         if (data) {
-            console.log(data);
+            toast.custom(
+                <Toast message={"Login Successful."} type={'success'} />
+            );
         } else {
-            console.log(error);
+            toast.custom(
+                <Toast message={error?.message} type={'error'} />
+            );
         };
 
     };

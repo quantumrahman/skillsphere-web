@@ -2,6 +2,7 @@
 
 import { RiGoogleFill } from "@remixicon/react";
 import { authClient } from "@/lib/auth-client";
+import { Toaster } from "react-hot-toast";
 
 import LoginForm from "@/components/ui/Form/LoginForm/LoginForm";
 import Logo from "@/components/ui/Logo/Logo";
@@ -52,6 +53,7 @@ const LoginPage = () => {
                     </Link>
                 </span>
             </div>
+            <Toaster position="bottom-right"/>
         </div>
     );
 };
