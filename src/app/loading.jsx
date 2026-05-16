@@ -1,7 +1,9 @@
+import { BeatLoader } from "react-spinners";
+
 const LoadingPage = () => {
     return (
         <div className="w-full min-h-screen flex items-center justify-center">
-            <h1 className="text-white">Loading...</h1>
+            <BeatLoader size={15} color="#ffffff"/>
         </div>
     );
 };
